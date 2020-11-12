@@ -13,7 +13,9 @@ static void add_close_header(httpd_req_t *req) {
 
 static esp_err_t root_handler(httpd_req_t *req) {
     char *body = "hello";
+//    add_close_header(req);
     httpd_resp_send(req, body, strlen(body));
+    ESP_LOGI(TAG, "handled root");
     return ESP_OK;
 }
 
@@ -27,7 +29,7 @@ void start_webserver(void) {
     if (server == NULL) {
         ESP_LOGI(TAG, "Starting webserver");
         httpd_config_t config = HTTPD_DEFAULT_CONFIG();
-        config.lru_purge_enable = true;
+//        config.lru_purge_enable = true;
         if (httpd_start(&server, &config) == ESP_OK) {
             httpd_register_uri_handler(server, &root_uri);
             ESP_LOGD(TAG, "Started webserver");

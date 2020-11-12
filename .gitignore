@@ -1,10 +1,6 @@
 /TODO.yaml
 /.idea
-/.pioenvs
 /CMakeListsPrivate.txt
-/.piolibdeps/
 /build
 /cmake-build-debug
 /sdkconfig.old
-/nvs_factory
-/coredump.elf
